@@ -1,29 +1,54 @@
 <?php
 
 Class A {
+	public function solve($a, $b){
+			
+			if($a == 0){
+			    return NULL;
+			}
+			return $this->X=-($b/$a);
+	}
+	
+	protected $X;
 }
 
 Class B extends A {
-	protected $a;
-	public function __construct($a){
-		$this->a = $a;
-	}
-}
-
-Class C extends B {
-	protected $b;
 	
-	public function __construct($a, $b) {
-		$this->b = $b;
+	protected function dis($a, $b, $c){
+		$x = ($b**2)-4*$a*$c;
+		return $x;
+		}
+	
+	public function qu_solve($a, $b, $c){
 		
-		parent::__construct($a);
+		$x = $this->dis($a, $b, $c);
+	    
+	    if($a == 0){
+	        return $this->solve($b,$c);
+	    }
+	    
+		
+		
+		if ($x > 0){
+		    return $this->X=array(
+		        -($b+sqrt($b**2-4*$a*$c)/2*$a), 
+		        -($b-sqrt($b**2-4*$a*$c)/2*$a)
+		        );
+		}
+		
+		if($x == 0){
+			return $this->X=array(-($b/2*$a));
+		}
+		
+		return $this->X=NULL;
+		
 	}
+	
 }
 
-$a1 = new A();
-$a2 = new A();
-$b3 = new B($a1);
-$b4 = new B($b3);
-$c5 = new C($a2, $b4);
+$a = new A();
+$b = new B();
+$a->solve(1,2);
+$b->qu_solve(0,2,1);
 
 ?>
