@@ -1,54 +1,15 @@
 <?php
 
-Class A {
-	public function solve($a, $b){
-			
-			if($a == 0){
-			    return NULL;
-			}
-			return $this->X=-($b/$a);
-	}
-	
-	protected $X;
-}
+include "core/EquationInterface.php";
+include "core/LogAbstract.php";
+include "core/LogInterface.php";
+include "podolskii/MyLog.php";
+include "podolskii/Equation.php";
+include "podolskii/QuEquation.php";
 
-Class B extends A {
-	
-	protected function dis($a, $b, $c){
-		$x = ($b**2)-4*$a*$c;
-		return $x;
-		}
-	
-	public function qu_solve($a, $b, $c){
-		
-		$x = $this->dis($a, $b, $c);
-	    
-	    if($a == 0){
-	        return $this->solve($b,$c);
-	    }
-	    
-		
-		
-		if ($x > 0){
-		    return $this->X=array(
-		        -($b+sqrt($b**2-4*$a*$c)/2*$a), 
-		        -($b-sqrt($b**2-4*$a*$c)/2*$a)
-		        );
-		}
-		
-		if($x == 0){
-			return $this->X=array(-($b/2*$a));
-		}
-		
-		return $this->X=NULL;
-		
-	}
-	
-}
-
-$a = new A();
-$b = new B();
-$a->solve(1,2);
-$b->qu_solve(0,2,1);
+ini_set("display_errors", 1);
+error_reporting (-1);
+\podolskii\MyLog::log("12312313");
+\podolskii\MyLog::write();
 
 ?>
