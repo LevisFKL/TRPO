@@ -10,23 +10,24 @@ Class MyLog extends LogAbstract implements LogInterface {
         $this->log[]=$str;
     }
 
-    public static function log(string $str){
+    /**
+     * @param String $str строка для записи в массив лога
+     */
+    public static function log(String $str){
         self::Instance()->_log($str);
 	}
     
     public function _write(){
         
-        for($i=0; $i<sizeof($this->log);$i++){
-            echo $this->log[$i]."\n";
+        foreach($this->log as $value){
+            echo $value."\n";
         }
         
     }
     
     public static function write(){
-        MyLog::Instance()->_write();
-
+        self::Instance()->_write();
     }
-
 
 }
 
