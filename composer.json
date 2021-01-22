@@ -1,0 +1,26 @@
+{
+    "name": "levisfkl/trpo",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Podolskii Maksim",
+            "email": "maxpodlol@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/rok9ru/trpo-core.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/LevisFKL/podolskii.git"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "rok9ru/trpo-core":"^2.0",
+        "levisfkl/podolskii":"^1.0"
+    }
+}
+    

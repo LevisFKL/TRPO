@@ -4,19 +4,13 @@ use podolskii\MyLog;
 use podolskii\PodolskiiException;
 use podolskii\QuEquation;
 
-include "core/EquationInterface.php";
-include "core/LogAbstract.php";
-include "core/LogInterface.php";
-include "podolskii/MyLog.php";
-include "podolskii/Equation.php";
-include "podolskii/QuEquation.php";
-include "podolskii/PodolskiiException.php";
+require_once(__DIR__."/vendor/autoload.php");
 
 ini_set("display_errors", 1);
 error_reporting (-1);
 
 try{
-    $version = file_get_context("version.txt");
+    $version = file_get_contents("version");
     MyLog::log("Версия программы ".$version);
     
     $b = new QuEquation();
@@ -31,7 +25,7 @@ try{
     $vc = $values[2];
 
     MyLog::log("Введено уравнение ".$va."x^2 + ".$vb."x + ".$vc." = 0");
-    $x = $b->qu_solve($va,$vb,$vc);
+    $x = $b->solve($va,$vb,$vc);
 
     $str = implode(", ", $x);
     MyLog::log("Корни уравнения: ".$str);
